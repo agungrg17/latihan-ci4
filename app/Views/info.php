@@ -8,35 +8,18 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="<?= base_url('home') ?>">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('data-siswa') ?>">Data Siswa</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('info-kegiatan') ?>">Info Kegiatan</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <?php if (session()->get('logged_in') === true) : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
-                </li>
-            <?php else : ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('registrasi') ?>">Registrasi</a>
-                </li>
-            <?php endif; ?>
-        </ul>
-    </nav>
-    <!-- End of Navbar -->
+   <!-- Navbar -->
+    <!-- Extend - memanggil view lain -->
+    <!-- Disini memanggil view tempalte.php di folder views/layout/template.php -->
+    <?= $this->extend('layout/template'); ?>
+
+    <!-- Section - setiap kita melakukan extend (dlm hal ini layout/template)
+    * maka dia akan mencari function renderSection() yg ada di layout/template
+    * maka semua code yg ada diantara $this->section('content') dan $this->endSection()
+    * akan disisipkan di renderSection('content') -->
+    
+    <?= $this->section('content'); ?>
+
     <h3>Info Kegiatan</h3>
     <p>Informasi Kegiatan Siswa Bulan Ini :</p>
     <ul>
@@ -47,6 +30,9 @@
     <ul>
         <li>12 September - Ujian Tengah Semester</li>
     </ul>
+
+    <?= $this->endSection(); ?>
+    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
