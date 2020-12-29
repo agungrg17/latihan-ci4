@@ -6,7 +6,7 @@ use App\Models\AuthModel;
 
 class AuthController extends BaseController
 {
-    public function _construct()
+    public function __construct()
     {
         $this->model = new AuthModel();
     }
