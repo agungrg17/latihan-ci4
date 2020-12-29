@@ -2,8 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\SiswaModel;
+
 class MenuController extends BaseController
 {
+    public function __construct()
+    {
+        $this->model = new SiswaModel();
+    }
+
     public function home()
     {
         return view('beranda');
@@ -16,6 +23,10 @@ class MenuController extends BaseController
 
     public function data_siswa()
     {
-        return view('siswa');
+        $data = array(
+            'siswa' => $this->model->findAll(),
+        );
+
+        return view('siswa', $data);
     }
 }
