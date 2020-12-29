@@ -20,12 +20,12 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="roe mt-3">
+    <div class="row mt-3">
         <div class="col-lg-6 mx-auto">
             <form action="<?= base_url('registrasi/simpan-registrasi') ?>" method="post">
                 <?= csrf_field() ?>
                 <div class="form-group row">
-                    <label for="name" class="col-sm-4 col-form-label">Nama</label>
+                    <label for="name" class="col-sm-4 col-form-label">Name</label>
                     <div class="col-sm-8">
                         <input type="text"
                             class="form-control <?php if ($validation->hasError('name')) echo 'is-invalid' ?>"

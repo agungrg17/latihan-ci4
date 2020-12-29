@@ -38,6 +38,9 @@ $routes->get('/data-siswa', 'MenuController::data_siswa');
 $routes->get('/info-kegiatan', 'MenuController::info_kegiatan');
 $routes->get('/registrasi', 'AuthController::registrasi');
 $routes->post('/registrasi/simpan-registrasi', 'AuthController::simpanRegistrasi');
+$routes->get('/login', 'AuthController::login');
+$routes->post('/login/proses-login', 'AuthController::prosesLogin');
+$routes->get('/logout', 'AuthController::logout');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

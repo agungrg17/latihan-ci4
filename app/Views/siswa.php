@@ -20,7 +20,8 @@
     
     <?= $this->section('content'); ?>
     
-    <h4>Data Siswa</h3>
+    <?php if (session()->get('role') === 'admin') : ?>
+    <h3>Data Siswa</h3>
     <table class="table-bordered table-striped">
         <tr>
             <th>Nama</th>
@@ -38,6 +39,11 @@
             <td>2004-01-30</td>
         </tr>
     </table>
+    <?php else : ?>
+        <div class="alert alert-danger" role="alert">
+        Anda Tidak Memiliki Akses Untuk Melihat Data
+        </div>
+    <?php endif; ?>
 
     <?= $this->endSection(); ?>
 
