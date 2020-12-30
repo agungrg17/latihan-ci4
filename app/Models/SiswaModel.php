@@ -8,5 +8,5 @@ class SiswaModel extends Model
 {
 
     protected $table = 'siswa';
-    protected $allowFields = ['name', 'nis', 'tgl_lahir'];
+    protected $allowedFields = ['name', 'nis', 'tgl_lahir'];
 }

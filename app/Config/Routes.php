@@ -41,6 +41,11 @@ $routes->post('/registrasi/simpan-registrasi', 'AuthController::simpanRegistrasi
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login/proses-login', 'AuthController::prosesLogin');
 $routes->get('/logout', 'AuthController::logout');
+$routes->get('/data-siswa/tambah', 'MenuController::tambahSiswa');
+$routes->post('/data-siswa/simpan', 'MenuController::simpanSiswa');
+$routes->get('/data-siswa/edit/(:num)', 'MenuController::editSiswa/$1');
+$routes->put('/data-siswa/update/(:num)', 'MenuController::updateSiswa/$1');
+$routes->delete('/data-siswa/delete/(:num)', 'MenuController::deleteSiswa/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
