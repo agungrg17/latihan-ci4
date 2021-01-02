@@ -47,9 +47,22 @@
         <?php endforeach; ?>
     </table>
     <?php else : ?>
-        <div class="alert alert-danger" role="alert">
-        Anda Tidak Memiliki Akses Untuk Melihat Data
-        </div>
+        <a href="<?= base_url('data-siswa') ?>">Data Siswa</a>
+    <table class="table-bordered table-striped">
+        <tr>
+            <th>Nama</th>
+            <th>NIS</th>
+            <th>Tanggal Lahir</th>
+        </tr>
+        <?php foreach ($siswa as $s) : ?>
+        <tr>
+            <td><?= $s['name'] ?></td>
+            <td><?= $s['nis'] ?></td>
+            <td><?= $s['tgl_lahir'] ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+        
     <?php endif; ?>
 
     <?= $this->endSection(); ?>

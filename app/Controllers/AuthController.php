@@ -29,7 +29,7 @@ class AuthController extends BaseController
                 'name'      => $this->request->getPost('name'),
                 'email'     => $this->request->getPost('email'),
                 'password'  => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
-                'role'      => 'siswa',
+                'role'      => $this->request->getPost('role'),
             ]);
 
             /*
@@ -64,6 +64,12 @@ class AuthController extends BaseController
                     'required'      => 'Email Harus Diisi',
                     'valid_email'   => 'Email Anda Tidak Valid',
                     'is_unique'     => 'Email (value) Sudah Ada'
+                ]
+            ],
+            'role'  => [
+                'rules'     => 'required',
+                'errors'    => [
+                    'required'  => 'Role Harus Diisi'
                 ]
             ],
             'password'  => [

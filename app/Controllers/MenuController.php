@@ -32,11 +32,17 @@ class MenuController extends BaseController
 
     public function tambahSiswa()
     {
-        return view('tambah_siswa');
+        $data = [
+            'validation'    => \Config\Services::validation()
+        ];
+        return view('tambah_siswa', $data);
     }
 
     public function simpanSiswa()
     {
+        if ($this->validate($this->rulestambahSiswa())) 
+        {
+
         $data = array(
             'nis'       => $this->request->getVar('nis'),
             'name'      => $this->request->getVar('name'),
@@ -46,6 +52,37 @@ class MenuController extends BaseController
         $this->model->insert($data);
 
         return redirect()->to(base_url('data-siswa'));
+        } else {
+            return redirect()->to(base_url('data-siswa/tambah'))->withInput();
+        }
+    }
+
+    public function rulestambahSiswa()
+    {
+        $setRules   = [
+            'nis'       => [
+                'rules'     => 'required|is_unique[siswa.nis]',
+                'errors'    => [
+                    'required'  => 'NIS Harus Diisi',
+                    'is_unique' => 'NIS Sudah Ada'
+            ]
+                ],
+        'name'  => [
+            'rules'     => 'required',
+            'errors'    => [
+                'required'  => 'Nama Harus Diisi'
+            ]
+            ],
+        'tgl_lahir' => [
+            'rules'     => 'required',
+            'errors'    => [
+                'required'  => 'Tanggal Lahir Harus Diisi'
+            ]
+        ]
+        ];
+        
+        return $setRules;
+
     }
 
     public function editSiswa($id)

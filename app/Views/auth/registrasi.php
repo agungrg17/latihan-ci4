@@ -51,6 +51,19 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="role" class="col-sm-4 col-form-label">Role</label>
+                    <div class="col-sm-8">
+                        <input type="role"
+                            class="form-control <?php if ($validation->hasError('role')) echo 'is-invalid' ?>"
+                            id="role"
+                            name="role"
+                            value="<?= old('role') ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->showError('role') ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="password" class="col-sm-4 col-form-label">Password</label>
                     <div class="col-sm-8">
                         <input type="password"
